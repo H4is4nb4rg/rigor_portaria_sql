@@ -1,0 +1,43 @@
+USE rigor_portaria;
+
+-- INSERT DE TRANSPORTADORAS
+INSERT INTO transportadora (nome, cnpj, contato) VALUES
+('TransLog Rápido', '11.222.333/0001-44', 'contato@translog.com'),
+('ViaSul Transportes', '22.333.444/0001-55', 'atendimento@viasul.com');
+
+-- INSERT DE MOTORISTAS
+INSERT INTO motorista (nome, cpf, telefone, cnh, empresa_transporte) VALUES
+('João Almeida', '111.222.333-44', '11 99999-1111', '1234567890', 'TransLog Rápido'),
+('Carlos Moreira', '222.333.444-55', '11 98888-2222', '2345678901', 'ViaSul Transportes');
+
+-- INSERT DE AJUDANTES
+INSERT INTO ajudante (nome, telefone, empresa_transporte) VALUES
+('Rafael Santos', '11 97777-3333', 'TransLog Rápido'),
+('Pedro Gomes', '11 96666-4444', 'ViaSul Transportes');
+
+-- INSERT DE USUÁRIOS
+INSERT INTO usuario (nome, funcao, login) VALUES
+('Marcos Silva', 'Balanceiro', 'marcos_s'),
+('Fernanda Lima', 'CA - Portaria', 'fernanda_l');
+
+-- INSERT DE SETORES
+INSERT INTO setor (nome, descricao) VALUES
+('Almoxarifado', 'Recebimento de materiais'),
+('Expedição', 'Saída de cargas');
+
+-- INSERT DE VEÍCULOS
+INSERT INTO veiculo (placa, modelo, tipo, id_transportadora) VALUES
+('ABC-1234', 'Volvo FH', 'Caminhão', 1),
+('DEF-5678', 'Mercedes Actros', 'Caminhão', 2);
+
+-- INSERT DE PESAGENS
+INSERT INTO pesagem (id_veiculo, id_motorista, id_ajudante, data_hora_entrada, peso_entrada, id_setor_destino, id_balanceiro, ticket_numero)
+VALUES
+(1, 1, 1, '2025-01-10 08:30:00', 15000.50, 1, 1, 'TCK0001'),
+(2, 2, 2, '2025-01-10 09:10:00', 17300.20, 2, 1, 'TCK0002');
+
+-- INSERT DE ACESSO PESSOA
+INSERT INTO acesso_pessoa (tipo_pessoa, nome, documento, data_hora_entrada, id_usuario_registro)
+VALUES
+('Visitante', 'Ricardo Nogueira', 'MG-112233', '2025-01-10 10:00:00', 2),
+('Funcionário', 'Juliana Ramos', 'CPF 999.888.777-00', '2025-01-10 06:50:00', 2);
